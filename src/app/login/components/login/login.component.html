@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div fxLayout="row" fxLayoutAlign="space-around center" class="login-component-wrap">
+	<div fxFlex="50%" class="desc">
+		<div class="logo">habit trakcer</div>
+		<div>Unlock your potential one habit at a time</div>
+	</div>
+	<div fxFlex="35%" class="login" fxLayout="column" fxLayoutAlign="start center" >
+		<div class="heading">{{current == 'login'? 'Login': 'Sign Up'}}</div>
+		<div>
+			<input type="text" placeholder="username" [(ngModel)]="username">
+		</div>
+		<div>
+			<input type="password" placeholder="password" [(ngModel)]="password">
+		</div>
+		<div *ngIf="current == 'login'">
+			<button [disabled]="!username || !password" (click)="login()" >Login</button>
+			<div class="alternate">
+				don't have a account <span (click)="gotToOther()">Sign Up</span>
+			</div>
+		</div>
+		<div *ngIf="current == 'sign-up'">
+			<button [disabled]="!username || !password" (click)="signUp()" >Sign Up</button>
+			<div class="alternate">
+				already have a account <span (click)="gotToOther()">Sign In</span>
+			</div>
+		</div>
+	</div>
+</div>

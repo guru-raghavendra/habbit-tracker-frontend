@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr.css';
+
+@font-face {
+	font-family: 'Borel';
+	src: url('/assets/fonts/Borel/Borel-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+
+html, body { height: 100%; }
+body { font-family: 'Madefor', 'Helvetica Neue', Helvetica, Arial, 'メイリオ', 'meiryo', 'ヒラギノ角ゴ Pro W3', 'hiragino kaku gothic pro', sans-serif;
+	background: linear-gradient(53deg,#fff 10.67%,#f9edff 54.14%,#81c2ff);}
+
+.logo{
+	font-family:'Borel';
+	font-size: 75px;
+}
