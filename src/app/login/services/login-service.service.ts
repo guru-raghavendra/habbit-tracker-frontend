@@ -3,29 +3,25 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class LoginServiceService {
-
+export class LoginService {
   private baseURL: string;
 
-  constructor(
-    private http: HttpClient,
-    private cookieService: CookieService,) { 
+  constructor(private http: HttpClient, private cookieService: CookieService) {
     this.baseURL = environment.baseUrl;
   }
 
-  setCookie(token:string){
-    this.cookieService.set('token', token)
+  setCookie(token: string) {
+    this.cookieService.set('token', token);
   }
 
-  login(obj:any){
-    return this.http.post(this.baseURL + 'accounts/login/', obj)
+  login(obj: any) {
+    return this.http.post(this.baseURL + 'accounts/login/', obj);
   }
-  
-  signUp(obj:any){
-    return this.http.post(this.baseURL + 'accounts/signup/', obj)
+
+  signUp(obj: any) {
+    return this.http.post(this.baseURL + 'accounts/signup/', obj);
   }
 }

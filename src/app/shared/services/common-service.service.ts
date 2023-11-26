@@ -17,7 +17,7 @@ export class CommonService {
 
   showError(err: any) {
     console.log(err)
-    let errMsg = err.message ? err.message : err.detail;
+    let errMsg = err.message ? err.message : err.error;
     console.log(errMsg)
     if (!errMsg) {
       this.toast.error(err);
