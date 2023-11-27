@@ -1,0 +1,155 @@
+.dashboard-wrap{
+	.logo{
+		color: #3d49b8;
+		padding-left: 80px;
+    	padding-top: 30px;
+		font-size: 50px;
+    	font-weight: 700;
+	}
+	.content{
+		padding: 50px;
+		height: 100%;
+		margin-top: -50px;
+		.calendar-container {
+			background: #ffffff;
+			border-radius: 10px;
+			.dates-grid {
+			  display: grid;
+			  grid-template-columns: repeat(7, 1fr); // 7 days in a week
+			  grid-gap: 5px;
+			  padding: 15px 30px;
+			  &.days{
+				font-weight: 500;
+				text-align: center;
+			  }
+			  &:nth-child(2){
+				height: 450px;
+				overflow: scroll;
+			  }
+			  .stat_containder{
+				padding: 10px;
+				background: #f8f8fa;
+				.date{
+					margin-bottom: 12px;
+					font-size: 13px;
+					font-weight: 600;
+				}
+				
+				.ratio{
+					background: white;
+					padding: 10px;
+					border-radius: 33px;
+					height: 45px;
+					width: 45px;
+	
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			  }
+	
+	
+			}
+		}
+		.habit-container{
+			position: relative;
+			background: #ffffff6b;
+			height: 530px;
+			border-radius: 10px;
+			app-add-new-habit {
+				border-radius: 10px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 100; 
+				background-color: #ffffffec;
+			}
+			.heading{
+				color: #3d49b8;
+				font-size: 30px;
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-align: center;
+				padding: 15px;
+			}
+			.habits{
+				height: 400px;
+				overflow: scroll;
+				.habit-box{
+					text-align: center;
+					cursor: pointer;
+					border-radius: 8px;
+					padding: 10px;
+					margin: 10px 30px;
+					background: #3d49b8b0;
+					color: aliceblue;
+					&.not-completed{
+						color: #3d49b8b0;
+						background: aliceblue;
+					}
+				}
+				.habit-input-box{
+					margin: 10px 30px;
+					padding: 10px;
+					border-radius: 8px;
+					background: #3d49b8b0;
+					color: aliceblue;
+					&.not-completed{
+						color: #3d49b8b0;
+						background: aliceblue;
+					}
+					input{
+						border: none;
+						width: 50%;
+						padding: 5px;
+						border-radius: 4px;
+						background: white;
+						&:focus{	
+							outline: none;
+						}
+						
+					}
+					button{
+						background: aliceblue;
+						color: #3d49b8b0;
+						padding: 5px;
+						border-radius: 6px;
+						font-size: 15px;
+						font-weight: 600;
+						border: none;
+						cursor: pointer;
+						&.save{
+							margin-right: 5px;
+						}
+						&.delete{
+							color: #ff5e5e;
+							background: #fadada;
+						}
+					}
+				}
+			}
+	
+			.buttons{
+				padding: 5px 30px;
+				button{
+					background: #3d49b8b0;
+					border: 1px solid #3d49b8b0;
+					padding: 11px;
+					width: 225px;
+					border-radius: 10px;
+					font-size: 15px;
+					font-weight: 600;
+					color: aliceblue;
+					cursor: pointer;
+					&.edit{
+						background: aliceblue;
+						color: #3d49b8b0;
+					}
+				}
+			}
+		}
+		  
+	}
+}

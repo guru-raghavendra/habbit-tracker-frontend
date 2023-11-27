@@ -1,0 +1,8 @@
+<div class="new-habit-container">
+	<div class="heading">Add new habit</div>
+	<input type="text" [(ngModel)]="habitName">
+	<div class="buttons" fxLayout="row" fxLayoutAlign="space-between center" >
+		<button class="back" (click)="back()">Back</button>
+		<button (click)="save()">Save</button>
+	</div>
+</div>

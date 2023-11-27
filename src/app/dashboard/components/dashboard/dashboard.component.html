@@ -1,1 +1,59 @@
-<div></div>
+
+<div class="dashboard-wrap">
+	<div class="logo">habit trakcer</div>
+	<div class="content" fxLayout="row" fxLayoutAlign="space-around center" >
+		<div class="calendar-container" fxFlex="65%">
+			<div class="dates-grid days">
+			  <div class="day" *ngFor="let day of daysOfWeek">{{ day }}</div>
+			</div>
+			<div class="dates-grid" id="scrollContainer"  #scrollContainer>
+				<div *ngFor="let stat of month_stats" class="stat_containder" >
+					<div class="date" >{{ stat.date | date : 'MMM d'}}</div>
+					<div fxLayout="column" fxLayoutAlign="start center">
+						<div class="ratio" *ngIf="stat.total_habits != -1">{{stat.completed_habits}} / {{stat.total_habits}}</div>
+						<div class="ratio" *ngIf="stat.total_habits == -1">NA</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div fxFlex="30%" class="habit-container">
+			<app-add-new-habit (newHabit)="saveNew($event)" *ngIf="openAddNew"> </app-add-new-habit>
+			<div class="heading">Habbits</div>
+			<div class="habits">
+				<ng-container *ngIf="mode=='update'">
+					<div  *ngFor="let habit of todays_habits" 
+						  class="habit-box" 
+						  [ngClass]="{'not-completed' : !habit.completed}"
+						  (click)="updateHabitClick(habit)">
+						{{habit.habit_name}}
+					</div>
+				</ng-container>
+				<ng-container *ngIf="mode=='edit'">
+					<div  *ngFor="let habit of todays_habits" 
+						  class="habit-input-box" 
+						  [ngClass]="{'not-completed' : !habit.completed}"
+						  fxLayout="row" fxLayoutAlign="space-between center" 
+						  >
+							
+						  <input type="text" [(ngModel)]="habit.habit_name">
+						  <div>
+							  <button class="save" (click)="saveEdit(habit)">Save</button>
+							  <button class="delete" (click)="deleteHabit(habit.habit)">Delete</button>
+						  </div>
+					</div>
+				</ng-container>
+			</div>
+			<div class="buttons" fxLayout="row" fxLayoutAlign="space-between center">
+				<ng-container *ngIf="mode=='update'">
+					<button fxFlex="45" class="edit" (click)="this.mode = 'edit'">Edit</button>
+					<button fxFlex="45" (click)="save()">Save</button>
+				</ng-container>
+				<ng-container *ngIf="mode=='edit'">
+					<button fxFlex="45" class="edit" (click)="this.mode = 'update'">Back</button>
+					<button fxFlex="45" (click)="openAddNew = true">New</button>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</div>
+  

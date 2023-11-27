@@ -11,11 +11,13 @@ export class TokenInterceptor implements HttpInterceptor {
     setHeader(req: HttpRequest<any>){
         const cookieService = this.inject.get(CookieService);
         const token = cookieService.get('token');
-        req = req.clone({
-            setHeaders: {
-                Authorization: `Token ${token}`
-            }
-        });
+        if(token){
+            req = req.clone({
+                setHeaders: {
+                    Authorization: `Token ${token}`
+                }
+            });
+        }
         return req;
     }
 

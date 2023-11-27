@@ -1,0 +1,46 @@
+.new-habit-container{
+	padding: 30px;
+	padding-top: 170px;
+	.buttons{
+		padding: 25px 30px;
+		
+		button{
+			background: rgb(61 73 184);
+			border: 1px solid rgb(61 73 184);
+			padding: 11px;
+			width: 225px;
+			border-radius: 10px;
+			font-size: 15px;
+			font-weight: 600;
+			color: aliceblue;
+			cursor: pointer;
+			&.back{
+				background: aliceblue;
+				color: rgb(61 73 184);
+				margin-right: 20px;
+			}
+		}
+	}
+	
+	input{
+		font-size: 15px;
+		border: none;
+		box-sizing: border-box;
+		padding: 15px;
+		border-radius: 10px;
+		width: 100%;
+		border: 1px solid rgb(61 73 184);
+		background: white;
+		&:focus{	
+			outline: none;
+		}
+		
+	}
+	.heading{
+		color: rgb(61 73 184);
+		text-align: center;
+		font-size: 20px;
+		font-weight: 700;
+		margin-bottom: 25px;
+	}
+}

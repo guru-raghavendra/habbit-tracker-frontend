@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddNewHabitComponent } from './components/add-new-habit/add-new-habit.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    AddNewHabitComponent
   ],
   imports: [
     CommonModule,
