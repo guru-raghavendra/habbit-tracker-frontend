@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/shared/services/common-service.service';
 export class DashboardComponent implements OnInit {
 
   @ViewChild('scrollContainer')
-  private scrollContainer!: ElementRef;
+  scrollContainer!: ElementRef;
 
   
 
@@ -81,9 +81,6 @@ export class DashboardComponent implements OnInit {
           }
         );
       }
-
-
-      console.log(this.todays_habits,this.month_stats)
     }
 
     save(){
@@ -110,7 +107,6 @@ export class DashboardComponent implements OnInit {
       } else {
         this.updateHabit.push({ habit_id: habit.habit, status: habit.completed });
       }
-      console.log(this.updateHabit)
     }
 
 

@@ -20,4 +20,18 @@ describe('AddNewHabitComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit empty string when back is called', () => {
+    spyOn(component.newHabit, 'emit');
+    component.back();
+    expect(component.newHabit.emit).toHaveBeenCalledWith('');
+  });
+
+  it('should emit habit name when save is called', () => {
+      const testHabitName = 'Test Habit';
+      component.habitName = testHabitName;
+      spyOn(component.newHabit, 'emit');
+      component.save();
+      expect(component.newHabit.emit).toHaveBeenCalledWith(testHabitName);
+  });
 });
