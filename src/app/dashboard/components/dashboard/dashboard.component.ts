@@ -48,6 +48,9 @@ export class DashboardComponent implements OnInit {
           this.todays_habits = response.todays_habits
           this.month_stats = response.month_stats
           this.fillEmptyDates()
+          if(this.todays_habits.length == 0){
+            this.mode = 'edit'
+          }
           this.commonService.hideLoader()
         },
         error: (err) => {
