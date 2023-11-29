@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
         this.month_stats.unshift(
           {
             date: day.toISOString().split('T')[0],
-            total_habits: 0,
+            total_habits: -1,
             completed_habits: 0
           }
         );
