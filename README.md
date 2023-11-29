@@ -1,27 +1,50 @@
 # HabitTrackerFrontend
+This Angular project is a habit tracking application designed to manage daily habits with user authentication (login and signup) and habit management features. The application allows users to add, edit, and delete habits, and provides a comprehensive monthly view of habits to track the user's progress over time.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Installation Prerequisites:
 
-## Code scaffolding
+Node.js (Version v14.5 or higher)
+Angular CLI (Version 14 or higher)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Getting Started
+git clone https://github.com/guru-raghavendra/habbit-tracker-frontend <br>
+cd habbit-tracker-frontend <br>
+npm install
 
-## Build
+### Running the Application
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Running Tests
+ng test
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Project Structure
+<b>src/app </b>: Contains the main application components, services, and models. <br>
+<b>src/environments:</b> Environment configuration files. <br>
+<b>Login Module:</b> Complete the login method to authenticate users.  <br>
+<ul>
+  <li>User should be able to sign up by providing user name and passwrod, on successful creation, should redirect to login</li>
+  <li>User should be able to login, with correct credentials, after successful login, should be able to save the token from the response in the cookies and redirect to dashboard</li>
+</ul>
+<b>Dashboard Module:</b> For tracking habits <br>
+it has two parts 
+<ol>
+  <li>
+    monthly view
+    <ul>
+      <li> show last 31 days data in the calender format, from the response of <i> dashboard/get-todays-data/</i> api, and fill the empty boxes with NA</li>
+    </ul>
+  </li>
+  <li>
+    Daily view
+    <ul>
+      <li> show the daily list of habit, from the response of <i> dashboard/get-todays-data/</i> api, if the habbit is not complete add not-completed class on click mark it as complet and bulk update status on save</li>
+       <li>on click on edit, should the hibbits in input text, beside each show save and delete button</li>
+    </ul>
+  </li>
+</ol>
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<b>Error Handling:</b> if 401 error status redirect to login <br>
+<b>Token Handling:</b> add token if token present in cookies <br>
