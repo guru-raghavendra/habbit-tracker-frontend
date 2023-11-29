@@ -15,11 +15,11 @@ export class AddNewHabitComponent implements OnInit {
   }
 
   back(){
-    this.newHabit.emit('')
+    //todo
   }
   
   save(){
-    this.newHabit.emit(this.habitName)
+     //todo
   }
 
 }

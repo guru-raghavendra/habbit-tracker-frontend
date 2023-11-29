@@ -28,52 +28,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.commonService.showLoader();
-    let body = {
-      username: this.username,
-      password: this.password,
-    };
-    this.service.login(body).subscribe({
-      next: (response: any) => {
-        this.service.setCookie(response.token);
-        this.router.navigate(['/dashboard']);
-        this.commonService.hideLoader();
-      },
-      error: (err) => {
-        if (err.status == 401) {
-          this.commonService.showError('invalid Credentials');
-        } else {
-          this.commonService.showError(err.error);
-        }
-        this.commonService.hideLoader();
-      },
-    });
+     //todo
   }
 
   signUp() {
-    this.commonService.showLoader();
-    let body = {
-      username: this.username,
-      password: this.password,
-    };
-    this.service.signUp(body).subscribe({
-      next: (response: any) => {
-        this.commonService.showSuccess('Success');
-        this.router.navigate(['../login'], { relativeTo: this.route });
-        this.commonService.hideLoader();
-      },
-      error: (err) => {
-        this.commonService.showError(err.error.username[0]);
-        this.commonService.hideLoader();
-      },
-    });
+     //todo
   }
 
   gotToOther() {
-    if (this.current == 'login') {
-      this.router.navigate(['../sign-up'], { relativeTo: this.route });
-    } else {
-      this.router.navigate(['../login'], { relativeTo: this.route });
-    }
+     //todo
   }
 }

@@ -9,15 +9,7 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private inject: Injector) {}
 
     setHeader(req: HttpRequest<any>){
-        const cookieService = this.inject.get(CookieService);
-        const token = cookieService.get('token');
-        if(token){
-            req = req.clone({
-                setHeaders: {
-                    Authorization: `Token ${token}`
-                }
-            });
-        }
+         //todo
         return req;
     }
 

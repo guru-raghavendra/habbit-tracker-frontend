@@ -7,13 +7,7 @@
 			  <div class="day" *ngFor="let day of daysOfWeek">{{ day }}</div>
 			</div>
 			<div class="dates-grid" id="scrollContainer"  #scrollContainer>
-				<div *ngFor="let stat of month_stats" class="stat_containder" >
-					<div class="date" >{{ stat.date | date : 'MMM d'}}</div>
-					<div fxLayout="column" fxLayoutAlign="start center">
-						<div class="ratio" *ngIf="stat.total_habits != -1">{{stat.completed_habits}} / {{stat.total_habits}}</div>
-						<div class="ratio" *ngIf="stat.total_habits == -1">NA</div>
-					</div>
-				</div>
+				<!-- todo -->
 			</div>
 		</div>
 		<div fxFlex="30%" class="habit-container">
@@ -21,12 +15,7 @@
 			<div class="heading">Habbits</div>
 			<div class="habits">
 				<ng-container *ngIf="mode=='update'">
-					<div  *ngFor="let habit of todays_habits" 
-						  class="habit-box" 
-						  [ngClass]="{'not-completed' : !habit.completed}"
-						  (click)="updateHabitClick(habit)">
-						{{habit.habit_name}}
-					</div>
+					<!-- todo -->
 				</ng-container>
 				<ng-container *ngIf="mode=='edit'">
 					<div  *ngFor="let habit of todays_habits" 

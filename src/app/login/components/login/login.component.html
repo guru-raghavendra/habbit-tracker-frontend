@@ -12,16 +12,10 @@
 			<input type="password" placeholder="password" [(ngModel)]="password">
 		</div>
 		<div *ngIf="current == 'login'">
-			<button [disabled]="!username || !password" (click)="login()" >Login</button>
-			<div class="alternate">
-				don't have a account <span (click)="gotToOther()">Sign Up</span>
-			</div>
+			<!-- //todo -->
 		</div>
 		<div *ngIf="current == 'sign-up'">
-			<button [disabled]="!username || !password" (click)="signUp()" >Sign Up</button>
-			<div class="alternate">
-				already have a account <span (click)="gotToOther()">Login</span>
-			</div>
+			<!-- //todo -->
 		</div>
 	</div>
 </div>

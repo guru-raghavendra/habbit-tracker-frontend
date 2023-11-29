@@ -42,136 +42,32 @@ export class DashboardComponent implements OnInit {
     }
 
     initData(){
-      this.commonService.showLoader()
-      this.service.getTodayData().subscribe({
-        next: (response:any) => {
-          this.todays_habits = response.todays_habits
-          this.month_stats = response.month_stats
-          this.fillEmptyDates()
-          if(this.todays_habits.length == 0){
-            this.mode = 'edit'
-          }
-          this.commonService.hideLoader()
-        },
-        error: (err) => {
-          this.commonService.showError(err.error)
-          this.commonService.hideLoader()
-        }
-      })
+      //todo
     }
 
     fillEmptyDates(){
-      let day = new Date(this.month_stats[0].date);
-      while (day.getDay() !== 0) {
-        day.setDate(day.getDate() - 1);
-        this.month_stats.unshift(
-          {
-            date: day.toISOString().split('T')[0],
-            total_habits: -1,
-            completed_habits: 0
-          }
-        );
-      }
-
-      day = new Date(this.month_stats[this.month_stats.length - 1].date);
-      while (day.getDay() !== 6) {
-        day.setDate(day.getDate() + 1);
-        this.month_stats.push(
-          {
-            date: day.toISOString().split('T')[0],
-            total_habits: -1,
-            completed_habits: 0
-          }
-        );
-      }
+      //todo
     }
 
     save(){
-      this.commonService.showLoader()
-      this.service.saveHabitStatus(this.updateHabit).subscribe({
-        next: (response:any) => {
-          this.updateHabit = []
-          this.commonService.showSuccess(response.message)
-          this.commonService.hideLoader()
-        },
-        error: (err) => {
-          this.commonService.showError(err.error)
-          this.commonService.hideLoader()
-        }
-      })
+      //todo
     }
 
     updateHabitClick(habit:any): void {
-      habit.completed = !habit.completed
-      const existingHabit = this.updateHabit.find((h: { habit_id: number; status:string }) => h.habit_id === habit.habit);
-  
-      if (existingHabit) {
-        existingHabit.status = habit.completed
-      } else {
-        this.updateHabit.push({ habit_id: habit.habit, status: habit.completed });
-      }
+      //todo
     }
 
 
     saveEdit(habit:any){
-      this.commonService.showLoader()
-      let body = {
-        name: habit.habit_name,
-        id: habit.habit
-      }
-      this.service.saveEdit(body).subscribe({
-        next: (response:any) => {
-          this.commonService.showSuccess(response.message)
-          this.commonService.hideLoader()
-        },
-        error: (err) => {
-          this.commonService.showError(err.error)
-          this.commonService.hideLoader()
-        }
-      })
+      //todo
     }
 
     deleteHabit(id:number){
-      this.commonService.showLoader()
-      this.service.deleteHabit(id).subscribe({
-        next: (response:any) => {
-          this.commonService.showSuccess(response.message)
-          this.month_stats = response.month_stats
-          this.fillEmptyDates()
-          this.todays_habits = this.todays_habits.filter((habit: { habit: number; }) => habit.habit !== id);
-          this.scrollToEnd();
-
-          
-          this.commonService.hideLoader()
-        },
-        error: (err) => {
-          this.commonService.showError(err.error)
-          this.commonService.hideLoader()
-        }
-      })
+      //todo
     }
 
     saveNew(habbitName:string){
-      this.openAddNew = false
-      if(habbitName){
-        this.commonService.showLoader()
-        let body = {
-          name : habbitName
-        }
-        this.service.createNewHabit(body).subscribe({
-          next: (response:any) => {
-            this.todays_habits = response.todays_habits
-            this.month_stats = response.month_stats
-            this.fillEmptyDates()
-            this.commonService.showSuccess("success")
-            this.commonService.hideLoader()
-          },
-          error: (err) => {
-            this.commonService.showError(err.error)
-            this.commonService.hideLoader()
-          }
-        })
-      }
+      //todo
     }
 
   }
