@@ -42,9 +42,116 @@ it has two parts
     <ul>
       <li> show the daily list of habit, from the response of <i> dashboard/get-todays-data/</i> api, if the habbit is not complete add not-completed class on click mark it as complet and bulk update status on save</li>
        <li>on click on edit, should the hibbits in input text, beside each show save and delete button</li>
+      <li>on click on new, a popup to add new habit</li>
     </ul>
   </li>
 </ol>
 
 <b>Error Handling:</b> if 401 error status redirect to login <br>
 <b>Token Handling:</b> add token if token present in cookies <br>
+
+
+### API Contacts
+<ul>
+  <li> 
+    <b>Sign Up: </b> https://habbit-tracker-ten.vercel.app/accounts/signup/ <br>
+     &emsp; Type : POST  <br>
+    &emsp; Request: {
+                    "username": "user",
+                    "password": "user"
+                } <br>
+     &emsp; Response {
+                        "id": 7,
+                        "username": "user"
+                    }<br>
+  </li>
+  <li> 
+    <b>Login: </b> https://habbit-tracker-ten.vercel.app/accounts/login/ <br>
+    &emsp; Type : POST  <br>
+    &emsp; Request: {
+                    "username": "user",
+                    "password": "user"
+                } <br>
+     &emsp; Response {
+                    "token": "token stinring"
+                }<br>
+  </li>
+   <br> <br>
+  For all the dashboard api's add authorisation header as "Token {token strting}" 
+   <br>
+  <li> 
+    <b>Get Data: </b> https://habbit-tracker-ten.vercel.app/dashboard/get-todays-data/ <br>
+    &emsp; Type : GET  <br>
+    &emsp; Request: <br>
+    &emsp; Response {
+    "todays_habits": [
+        {
+            "habit": 13,
+            "habit_name": "gym",
+            "completed": false
+        }
+    ],
+    <br>
+    "month_stats": [
+        {
+            "date": "2023-10-30",
+            "total_habits": 0,
+            "completed_habits": 0
+        }
+    ]
+    }<br>
+  </li>
+  <li> 
+    <b>Upate habit status: </b> https://habbit-tracker-ten.vercel.app/dashboard/save-habit-statuses/ <br>
+    &emsp; Type : POST  <br>
+    &emsp; Request: [
+            {
+                "habit_id" : 1,
+                "status" : true 
+            } ] <br>
+    &emsp; Response {
+    "message": "Habit statuses and stats updated successfully"
+    }<br>
+  </li>
+
+  <li> 
+    <b>Edit habit : </b> https://habbit-tracker-ten.vercel.app/dashboard/edit-habit/{habit-id}/ <br>
+    &emsp; Type : PUT  <br>
+    &emsp; Request: {
+            "name":"workout"
+        } <br>
+    &emsp; Response {
+            "message": "Success"
+        }<br>
+  </li>
+
+  <li> 
+    <b>Edit habit : </b> https://habbit-tracker-ten.vercel.app/dashboard/dashboard/delete-habit/{habit-id}/ <br>
+    &emsp; Type : DELETE  <br>
+    &emsp; Request:  <br>
+    &emsp; Response ("month_stats": [
+        {
+            "date": "2023-10-30",
+            "total_habits": 0,
+            "completed_habits": 0
+        }
+    ]
+    }<br>
+  </li>
+
+   <li> 
+    <b>Create new habit : </b> https://habbit-tracker-ten.vercel.app/dashboard/create-new-habit/ <br>
+    &emsp; Type : POST  <br>
+    &emsp; Request: {
+    "name":"play guitar3"
+} <br>
+    &emsp; Response ("month_stats": [
+        {
+            "date": "2023-10-30",
+            "total_habits": 0,
+            "completed_habits": 0
+        }
+    ]
+    }<br>
+  </li>
+</ul>
